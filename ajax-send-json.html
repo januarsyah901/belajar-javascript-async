@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax send json</title>
+</head>
+<body>
+    <form id="login-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <br>
+        <button id="submit" type="button" value="login">Login</button>
+    </form>
+    <div id="response"></div>
+    <script>
+        function doLogin(){
+            const ajax = new XMLHttpRequest();
+            ajax.open("POST","https://eot5lkuhdzl2vjg.m.pipedream.net");
+            ajax.onload = function (){
+                const response = document.getElementById("response");
+                response.innerText = ajax.responseText;
+            }
+            const json = {
+                username : document.querySelector("#username").value,
+                password : document.querySelector("#password").value
+            }
+            ajax.send(JSON.stringify(json))
+
+        }
+        document.getElementById("submit").onclick = doLogin;
+
+    </script>
+</body>
+</html>
