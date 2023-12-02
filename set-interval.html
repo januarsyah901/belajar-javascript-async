@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Set Interval</title>
+</head>
+<h1 id="h1"></h1>
+<body>
+    <script>
+        function setTime(){
+            const time = document.getElementById("h1");
+            time.textContent = new Date().toString();
+        }
+
+        setInterval(setTime, 1000);
+        console.info("program selesai");
+    </script>
+</body>
+</html>
